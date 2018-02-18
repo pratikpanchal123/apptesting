@@ -35,6 +35,8 @@ function paramsToString(params, mandatoryflag) {
 
 
 function genchecksum(params, key, cb) {
+    console.log('in get checksum');
+    console.log(params);
   var data = paramsToString(params);
 crypt.gen_salt(4, function (err, salt) {
     var sha256 = crypto.createHash('sha256').update(data + salt).digest('hex');
