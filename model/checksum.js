@@ -15,7 +15,7 @@ function paramsToString(params, mandatoryflag) {
     console.log('testestet');
     console.log(tempKeys);
   tempKeys.forEach(function (key) {
-  var n = params[key].includes("REFUND"); 
+ /* var n = params[key].includes("REFUND");
    var m = params[key].includes("|");  
         if(n == true )
         {
@@ -24,7 +24,7 @@ function paramsToString(params, mandatoryflag) {
           if(m == true)
         {
           params[key] = "";
-        }  
+        } */
     if (key !== 'CHECKSUMHASH' ) {
       if (params[key] === 'null') params[key] = '';
       if (!mandatoryflag || mandatoryParams.indexOf(key) !== -1) {
@@ -115,11 +115,11 @@ function paramsToStringrefund(params, mandatoryflag) {
   var tempKeys = Object.keys(params);
   tempKeys.sort();
   tempKeys.forEach(function (key) {
-   var m = params[key].includes("|");  
+   /*var m = params[key].includes("|");
           if(m == true)
         {
           params[key] = "";
-        }  
+        }*/
     if (key !== 'CHECKSUMHASH' ) {
       if (params[key] === 'null') params[key] = '';
       if (!mandatoryflag || mandatoryParams.indexOf(key) !== -1) {
