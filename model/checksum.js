@@ -12,6 +12,8 @@ function paramsToString(params, mandatoryflag) {
   console.log('Pratik test');
   var tempKeys = Object.keys(params);
   tempKeys.sort();
+    console.log('testestet');
+    console.log(tempKeys);
   tempKeys.forEach(function (key) {
   var n = params[key].includes("REFUND"); 
    var m = params[key].includes("|");  
