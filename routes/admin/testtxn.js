@@ -52,14 +52,22 @@ res.render('testtxn.ejs',{'config' : config});
             }
         }
         console.log(paramarray);
-        //paramarray['CALLBACK_URL'] = 'https://paytmapptesting.herokuapp.com/response';  // in case if you want to send callback
+        paramarray['CALLBACK_URL'] = 'https://paytmapptesting.herokuapp.com/response';  // in case if you want to send callback
+        //paramarray['CALLBACK_URL'] = 'http://localhost:5000/response';  // in case if you want to send callback
         console.log(PAYTM_MERCHANT_KEY);
         checksum.genchecksum(paramarray, PAYTM_MERCHANT_KEY, function (err, result)
         {
-            console.log(result);
-            console.log('pratik')
             var checkSum = {};
-            checkSum.checkSumData =  result.CHECKSUMHASH;
+            checkSum.CUST_ID =  result.CUST_ID;
+            checkSum.INDUSTRY_TYPE_ID =  result.INDUSTRY_TYPE_ID;
+            checkSum.CHANNEL_ID =  result.CHANNEL_ID;
+            checkSum.TXN_AMOUNT =  result.TXN_AMOUNT;
+            checkSum.MID =  result.MID;
+            checkSum.WEBSITE =  result.WEBSITE;
+            checkSum.CALLBACK_URL =  result.CALLBACK_URL;
+            checkSum.CHECKSUMHASH =  result.CHECKSUMHASH;
+            checkSum.ORDER_ID = result.ORDER_ID;
+            console.log(result);
             res.json(checkSum);
         });
 
