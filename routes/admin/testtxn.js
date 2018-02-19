@@ -56,6 +56,7 @@ res.render('testtxn.ejs',{'config' : config});
         checksum.genchecksum(paramarray, PAYTM_MERCHANT_KEY, function (err, result)
         {
             console.log(result);
+            console.log('pratik')
             res.json({ 'checksum' : result });
         });
 
