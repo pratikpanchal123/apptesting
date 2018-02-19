@@ -57,7 +57,9 @@ res.render('testtxn.ejs',{'config' : config});
         {
             console.log(result);
             console.log('pratik')
-            res.json({ 'checksum' : result });
+            var checkSum = {};
+            checkSum.checkSumData =  result;
+            res.json(checkSum);
         });
 
         console.log("POST Order end");
