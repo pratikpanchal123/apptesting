@@ -52,7 +52,7 @@ res.render('testtxn.ejs',{'config' : config});
             }
         }
         console.log(paramarray);
-        paramarray['CALLBACK_URL'] = 'https://paytmapptesting.herokuapp.com/response';  // in case if you want to send callback
+        //paramarray['CALLBACK_URL'] = 'https://paytmapptesting.herokuapp.com/response';  // in case if you want to send callback
         console.log(PAYTM_MERCHANT_KEY);
         checksum.genchecksum(paramarray, PAYTM_MERCHANT_KEY, function (err, result)
         {
