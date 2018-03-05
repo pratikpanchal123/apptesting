@@ -8,13 +8,14 @@ module.exports = function (app) {
         console.log(paramlist);
         if(checksum.verifychecksum(paramlist, config.PAYTM_MERCHANT_KEY))
         {
-              
-               console.log("true");
-               res.render('response.ejs',{ 'restdata' : "true" ,'paramlist' : paramlist});
+              res.redirect('https://paytmapptesting.herokuapp.com/#/thank-you');
+               //console.log("true");
+               //res.render('response.ejs',{ 'restdata' : "true" ,'paramlist' : paramlist});
         }else
         {
-           console.log("false");
-          res.render('response.ejs',{ 'restdata' : "false" , 'paramlist' : paramlist});
+			res.redirect('https://paytmapptesting.herokuapp.com/#/thank-you');
+           //console.log("false");
+          //res.render('response.ejs',{ 'restdata' : "false" , 'paramlist' : paramlist});
         };
 //vidisha
   });
