@@ -1,6 +1,7 @@
 
 var express = require("express")
   , redirect = require("express-redirect");
+  var path = require('path');
  
 var app = express();
 redirect(app); 
@@ -9,7 +10,9 @@ var bodyParser = require('body-parser');
 var server = require('http').createServer(app);
 
 app.use(bodyParser.json());
-
+app.get('/', function(req, res) {
+    res.sendFile(path.join(__dirname + '/index.html'));
+});
 app.use(bodyParser.urlencoded({
   extended: true
 }));
@@ -24,7 +27,7 @@ app.use(router);
 require('./routes/admin/testtxn')(app);
 require('./routes/admin/pgredirect')(app);
 require('./routes/admin/response')(app);
-app.use(express.static(__dirname + '/public'));
+app.use(express.static(__dirname + '/'));
 app.set('views', __dirname + '/views');
 app.set('view engine', 'ejs');
 app.listen(app.get('port'), function() {
