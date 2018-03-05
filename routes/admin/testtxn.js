@@ -1,5 +1,6 @@
 var checksum = require('../../model/checksum');
 var config = require('../../config/config');
+var request = require('request');
 
 module.exports = function (app) {
 
@@ -73,6 +74,28 @@ res.render('testtxn.ejs',{'config' : config});
         });
 
         console.log("POST Order end");
+
+    });
+	app.get('/sendOTP',function(req, res) {
+		var authKey = req.query.authkey;
+		var mobile = req.query.mobile;
+		
+        request.get({ url: "https://api.msg91.com/api/sendotp.php?authkey="+authKey+"&mobile="+mobile},      function(error, response, body) { 
+              if (!error && response.statusCode == 200) { 
+                  res.json(body); 
+                 } 
+             }); 
+
+    });
+	app.get('/verifyOTP',function(req, res) {
+		var authKey = req.query.authkey;
+		var mobile = req.query.mobile;
+		var otp = req.query.otp;
+        request.get({ url: "https://api.msg91.com/api/verifyRequestOTP.php?authkey="+authKey+"&mobile="+mobile+"&otp="+otp},      function(error, response, body) {
+              if (!error && response.statusCode == 200) { 
+                  res.json(body); 
+                 } 
+             }); 
 
     });
 //vidisha
