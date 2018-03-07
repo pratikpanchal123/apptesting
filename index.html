@@ -52,6 +52,14 @@
 <script type="text/javascript" src="./static/revslider-demo/js/jquery.themepunch.tools.min.js"></script>
 <script type="text/javascript">
     function startSlider() {
+
+    }
+
+    $(document).ready(function(){
+        $('.toggle-menu-responsive').click(function(){
+            $('.navigation').toggleClass('awe-navigation-responsive-active');
+        });
+
         if ($('#slider-revolution').length) {
             $('#slider-revolution').show().revolution({
                 ottedOverlay: "none",
@@ -128,9 +136,10 @@
                 startWithSlide: 0
             });
         }
-    }
+
+    });
 </script>
 
 
-<script type="text/javascript" src="./index.min.js?72eb5a94415b815b524a"></script></body>
+<script type="text/javascript" src="./index.min.js?2e35d1ebc7999c35d1d6"></script></body>
 </html>
